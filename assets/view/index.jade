@@ -1,0 +1,10 @@
+extends layout
+
+block style
+	link(rel='stylesheet', href='/style/index.css')
+
+block content
+	div#all
+		div#score
+		div(style="clear: both;")
+		canvas#gameCanvas(width=300, height=400)
