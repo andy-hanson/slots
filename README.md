@@ -5,9 +5,10 @@ Very cheap slots game.
 
 ## Run
 
-`sudo npm install; node_modules/grunt-cli/bin/grunt`
+Playable at <http://andy-hanson.github.io/slots>.
 
-Then navigate to `localhost:8000`.
+Or: `sudo npm install; node_modules/grunt-cli/bin/grunt`, then navigate to `localhost:8000`.
+
 
 ## Play
 
