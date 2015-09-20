@@ -1,0 +1,7 @@
+{
+	"name": "slots",
+	"dependencies": {
+		"msl": "mason-lang/msl",
+		"requirejs": "2.1.20"
+	}
+}
