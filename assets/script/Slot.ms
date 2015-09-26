@@ -1,6 +1,5 @@
-use
+import
 	global Image
-	msl.math.Number modulo
 	.util round-down-to-nearest
 
 n-images = 3

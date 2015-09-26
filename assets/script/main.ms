@@ -1,4 +1,4 @@
-use
+import
 	global document
 	.Game
 

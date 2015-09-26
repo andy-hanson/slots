@@ -1,4 +1,4 @@
-use
+import
 	global Audio requestAnimationFrame
 	.Scorer
 	.Slot

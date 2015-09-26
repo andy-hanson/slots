@@ -1,4 +1,4 @@
-use
+import
 	global Audio document
 
 sounds =
