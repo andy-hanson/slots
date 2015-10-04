@@ -7,4 +7,4 @@ define(["msl/private/boot","exports","./Game"],(_boot,exports,Game_0)=>{
 	const name=exports.name=`main`;
 	return exports
 })
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNjcmlwdC9tYWluLm1zIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Q0FJQSxhQUFTLHdCQUF5QjtDQUNaLDJCQUFyQixLQUFJLE1BQUs7Q0FMVix3QkFBQSIsImZpbGUiOiIuL21haW4uanMifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFzc2V0cy9zY3JpcHQvbWFpbi5tcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0NBSUEsYUFBUyx3QkFBeUI7Q0FDWiwyQkFBckIsS0FBSSxNQUFLO0NBTFYsd0JBQUEiLCJmaWxlIjoiLi9tYWluLmpzIn0=
