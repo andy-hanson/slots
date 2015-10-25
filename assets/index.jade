@@ -10,9 +10,10 @@ html
 		script.
 			requirejs.config({
 				baseUrl: 'lib',
-				paths: { msl: 'msl/dist' }
+				paths: { msl: 'msl/lib' }
 			})
-			require([ "../script/main" ])
+			// kludge: need bootstrap first due to lazy modules
+			require([ 'msl/private/bootstrap' ], () => require([ '../script/main' ]))
 
 	body
 		a(href='//github.com/andy-hanson/slots')

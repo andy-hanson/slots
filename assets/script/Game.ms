@@ -1,8 +1,8 @@
 import
 	global Audio requestAnimationFrame
+	msl.compare all-same?
 	.Scorer
 	.Slot
-	.util all-same?
 
 sounds =
 	spin. new Audio "sound/spin.ogg"
@@ -11,69 +11,65 @@ sounds =
 n-slots = 3
 
 Game. class
-	construct! .canvas
-		.context = canvas.getContext "2d"
-		.scorer = new Scorer
+	construct .canvas
+		.context := canvas.getContext "2d"
+		.scorer := new Scorer
 		.reset-slots!()
-		.state := "waiting"
+		.state := 'waiting
 
-		canvas.addEventListener "click" !|
-			.stop-next-slot!()
+		canvas.addEventListener 'click .&stop-next-slot!
 
-	get "width"
+	get width
 		.canvas.width
-	get "height"
+	get height
 		.canvas.height
 
-	"run!" !|
+	run! !\
 		.step!()
 		.draw!()
-		requestAnimationFrame !|
-			.run!()
+		requestAnimationFrame .&run!
 
-	"step!" !|
-		for! .slots
+	my step! !\
+		for .slots
 			_.step!()
 
-	"draw!" !|
+	my draw! !\
 		c = .context
 		c.clearRect 0 0 .width .height
-		for! .slots
+		for .slots
 			_.draw! c
-			if! =? .state "waiting"
-				c.textAlign := "center"
-				c.textBaseline := "middle"
-				c.font := "64px impact"
-				c.fillText "Click me!" (/ .width 2) (/ .height 2)
+		if =? .state 'waiting
+			c.textAlign := 'center
+			c.textBaseline := 'middle
+			c.font := "64px impact"
+			c.fillText "Click me!" (/ .width 2) / .height 2
 
-	"stop-next-slot!" !|
-		switch! .state
-			"waiting"
+	my stop-next-slot! !\
+		switch .state
+			'waiting
 				sounds.start.play()
 				.reset-slots!()
-			"playing"
+			'playing
 				sounds.spin.play()
-				if! <? .next-slot n-slots
+				if <? .next-slot n-slots
 					.slots[.next-slot].stop!()
 					.next-slot := + 1 .next-slot
 
-	"on-slot-stopped!" !|slot
+	on-slot-stopped! !\slot
 		| Happens a small time after stop-next-slot.
-		slots-so-far = .slots.slice 0 (+ 1 slot.slotIndex)
-		get-idx = |slot
-			slot.current-slot
-		case!
-			not all-same? slots-so-far get-idx
+		slots-so-far = .slots.slice 0 + 1 slot.slotIndex
+		case
+			not all-same? slots-so-far &.current-slot
 				.scorer.on-lose!()
-				.state := "waiting"
-			=? slot.slotIndex (- n-slots 1)
+				.state := 'waiting
+			=? slot.slotIndex - n-slots 1
 				.scorer.on-win!()
-				.state := "waiting"
+				.state := 'waiting
 			else
 				pass
 
-	"reset-slots!" !|
-		.state := "playing"
+	my reset-slots! !\
+		.state := 'playing
 		.next-slot := 0
-		.slots := @for i in new Range 0 n-slots
-			new Slot this i
+		.slots := @for 0...n-slots
+			. new Slot this _
